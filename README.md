@@ -25,7 +25,7 @@ CSS Snippets Manager 是一个用于 Obsidian 的插件，旨在帮助用户管�
 2. 在 Community plugins 中搜索并安装 `BRAT`（或同类的“从 GitHub 安装”插件）。
 3. 打开 BRAT 的界面或使用命令面板中的 BRAT 命令，选择“Install from GitHub”或“Install repository”。
 4. 在弹出的输入框中粘贴本仓库的 GitHub 地址，例如：
-   `https://github.com/<owner>/<repo>`
+   `https://github.com/WisOcean/CSS-Snippets-Manager`
 5. 确认安装并在 Community plugins 列表中启用 `CSS Snippets Manager`。
 
 如果 BRAT 不可用，可手动安装：将编译好的 `main.js`、`manifest.json` 与其他所需文件放入 Obsidian 配置目录下的 `plugins/<your-plugin-folder>/`，然后在 Community plugins 中启用。
@@ -53,13 +53,11 @@ npm run build
 
 4. 在 Obsidian 的 Community plugins 中启用插件。
 
-## 仓库占位（请替换为你的仓库地址）
+## 仓库地址
 
 ```
-https://github.com/<owner>/<repo>
+https://github.com/WisOcean/CSS-Snippets-Manager
 ```
-
-> 提示：在将项目发布到 GitHub 前，请把上面的占位 URL 替换为真实仓库地址，以便用户通过 BRAT 或直接链接安装。
 
 ## 使用示例（中文）
 1. 打开插件视图：命令面板 → "Open CSS Snippets Manager"
@@ -89,7 +87,7 @@ If you use Obsidian and have BRAT (or a similar "Install from GitHub" helper plu
 1. In Obsidian: Settings → Community plugins → disable Safe mode (if not already off).
 2. Install BRAT (or an equivalent plugin that allows installing from GitHub) from the Community plugins gallery.
 3. Open BRAT (or trigger it via the command palette) and choose "Install from GitHub" or "Install repository".
-4. Paste the repository URL, e.g. `https://github.com/<owner>/<repo>` and confirm.
+4. Paste the repository URL, e.g. `https://github.com/WisOcean/CSS-Snippets-Manager` and confirm.
 5. After installation, enable `CSS Snippets Manager` in Community plugins.
 
 Manual install: copy the built `main.js`, `manifest.json`, and other required files into your Obsidian vault's `plugins/<your-plugin-folder>/` directory, then enable the plugin in Community plugins.
@@ -117,10 +115,10 @@ npm run build
 
 4. Enable the plugin in Obsidian's Community plugins.
 
-## Repository placeholder (replace with your repo URL)
+## Repository
 
 ```
-https://github.com/<owner>/<repo>
+https://github.com/WisOcean/CSS-Snippets-Manager
 ```
 
 ## Quick usage example (English)
