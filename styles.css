@@ -1,0 +1,1881 @@
+/*
+CSS Snippets Manager Plugin Styles - 统一简约重设计
+*/
+
+/* =====================================
+   CSS 变量定义 - 设计系统
+   ===================================== */
+:root {
+    --css-snippets-spacing-xs: 4px;
+    --css-snippets-spacing-sm: 8px;
+    --css-snippets-spacing-md: 12px;
+    --css-snippets-spacing-lg: 16px;
+    --css-snippets-spacing-xl: 20px;
+    --css-snippets-spacing-2xl: 24px;
+    
+    --css-snippets-radius-sm: 6px;
+    --css-snippets-radius-md: 8px;
+    --css-snippets-radius-lg: 12px;
+    
+    --css-snippets-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --css-snippets-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --css-snippets-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================
+   主容器 - 统一布局
+   ===================================== */
+.css-snippets-manager-view {
+    padding: var(--css-snippets-spacing-2xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--font-interface);
+    line-height: 1.5;
+    background: var(--background-primary);
+}
+
+/* =====================================
+   标签页导航 - 简约设计
+   ===================================== */
+.css-snippets-tab-nav {
+    display: flex;
+    background: transparent;
+    border-bottom: 2px solid var(--background-modifier-border);
+    margin-bottom: var(--css-snippets-spacing-2xl);
+    padding: 0;
+}
+
+.css-snippets-tab-button {
+    flex: 1;
+    padding: var(--css-snippets-spacing-md) var(--css-snippets-spacing-lg);
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.css-snippets-tab-button:hover {
+    color: var(--text-normal);
+}
+
+.css-snippets-tab-button.active {
+    color: var(--interactive-accent);
+    font-weight: 600;
+    border-bottom-color: var(--interactive-accent);
+}
+
+/* =====================================
+   标签页内容容器
+   ===================================== */
+.css-snippets-tab-content {
+    min-height: 200px;
+}
+
+.css-snippets-tab-panel {
+    padding: 0;
+    background-color: transparent;
+    display: none;
+}
+
+.css-snippets-tab-panel[data-tab="local"] {
+    display: block;
+}
+
+/* Section styles - kept for backwards compatibility */
+.css-snippets-cloud-section,
+.css-snippets-local-section,
+.css-snippets-editor-section {
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    background-color: var(--background-primary-alt);
+}
+
+.css-snippets-cloud-section h3,
+.css-snippets-local-section h3,
+.css-snippets-editor-section h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: var(--text-accent);
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 8px;
+}
+
+/* =====================================
+   搜索功能 - 统一设计风格
+   ===================================== */
+/* Search functionality with action buttons */
+.css-snippets-search {
+    display: flex;
+    align-items: center;
+    gap: var(--css-snippets-spacing-sm);
+    margin-bottom: var(--css-snippets-spacing-lg);
+    background: var(--background-secondary);
+    border-radius: var(--css-snippets-radius-md);
+    padding: var(--css-snippets-spacing-xs);
+    border: 1px solid var(--background-modifier-border);
+}
+
+/* Search with action buttons layout */
+.css-snippets-search-with-action {
+    display: flex;
+    align-items: center;
+    gap: var(--css-snippets-spacing-sm);
+}
+
+.css-snippets-search-with-multiple-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--css-snippets-spacing-sm);
+}
+
+/* Shortened search input for when there are action buttons */
+.css-snippets-search-input-shortened {
+    flex: 1;
+    max-width: 60% !important;
+}
+
+/* Action buttons in search bar */
+.css-snippets-search-action-btn {
+    flex-shrink: 0;
+    font-size: 11px !important;
+    padding: var(--css-snippets-spacing-xs) var(--css-snippets-spacing-sm) !important;
+    white-space: nowrap;
+}
+
+/* Editor action buttons container */
+.css-snippets-editor-action-buttons {
+    display: flex;
+    gap: var(--css-snippets-spacing-xs);
+    flex-shrink: 0;
+}
+
+/* 编辑器按钮组统一样式 - 覆盖主要按钮样式以保持一致性 */
+.css-snippets-editor-action-buttons .css-snippets-btn {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    border-color: var(--background-modifier-border);
+}
+
+.css-snippets-editor-action-buttons .css-snippets-btn:hover {
+    border-color: var(--interactive-accent);
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+.css-snippets-search-input {
+    width: 100%;
+    padding: var(--css-snippets-spacing-md) 40px var(--css-snippets-spacing-md) var(--css-snippets-spacing-lg);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-md);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.css-snippets-search-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.1);
+}
+
+.css-snippets-search-input::placeholder {
+    color: var(--text-faint);
+}
+
+.css-snippets-search-clear {
+    position: absolute;
+    right: var(--css-snippets-spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--background-modifier-hover);
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 12px;
+    padding: var(--css-snippets-spacing-xs);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.css-snippets-search-clear:hover {
+    background: var(--background-modifier-border);
+    color: var(--text-normal);
+}
+
+/* 搜索结果信息 */
+.css-snippets-search-info {
+    padding: var(--css-snippets-spacing-sm) var(--css-snippets-spacing-md);
+    margin-top: var(--css-snippets-spacing-sm);
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-sm);
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.css-snippets-search-info-text {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: var(--css-snippets-spacing-xs);
+}
+
+/* 四种状态的样式 */
+/* 1. 准备搜索状态 */
+.css-snippets-search-info.search-ready {
+    background: rgba(128, 128, 128, 0.08);
+    border-color: rgba(128, 128, 128, 0.2);
+    color: var(--text-muted);
+}
+
+.css-snippets-search-info.search-ready .css-snippets-search-info-text::before {
+    content: "🔍";
+}
+
+/* 2. 搜索结果状态 */
+.css-snippets-search-info.search-results {
+    background: rgba(var(--color-green-rgb), 0.08);
+    border-color: rgba(var(--color-green-rgb), 0.2);
+    color: var(--color-green);
+}
+
+.css-snippets-search-info.search-results .css-snippets-search-info-text::before {
+    content: "✅";
+}
+
+/* 3. 搜索无结果状态 */
+.css-snippets-search-info.search-empty {
+    background: rgba(var(--color-orange-rgb), 0.08);
+    border-color: rgba(var(--color-orange-rgb), 0.2);
+    color: var(--color-orange);
+}
+
+.css-snippets-search-info.search-empty .css-snippets-search-info-text::before {
+    content: "⚠️";
+}
+
+/* 4. 列表信息状态 */
+.css-snippets-search-info.list-info {
+    background: rgba(var(--interactive-accent-rgb), 0.08);
+    border-color: rgba(var(--interactive-accent-rgb), 0.2);
+    color: var(--interactive-accent);
+}
+
+.css-snippets-search-info.list-info .css-snippets-search-info-text::before {
+    content: "📋";
+}
+
+/* =====================================
+   统一列表容器 - 无高度限制
+   ===================================== */
+.css-snippets-cloud-list,
+.css-snippets-local-list {
+    background: transparent;
+    padding: 0;
+    margin-top: var(--css-snippets-spacing-lg);
+}
+
+/* =====================================
+   统一片段项目设计
+   ===================================== */
+.css-snippets-item,
+.css-snippets-cloud-item,
+.css-snippets-local-item {
+    padding: var(--css-snippets-spacing-lg);
+    margin-bottom: var(--css-snippets-spacing-md);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-md);
+    background: var(--background-primary);
+    transition: all 0.2s ease;
+}
+
+.css-snippets-item:hover,
+.css-snippets-cloud-item:hover {
+    border-color: var(--interactive-accent);
+    box-shadow: var(--css-snippets-shadow-md);
+}
+
+/* 本地模块根据启用状态显示不同的悬浮边框颜色 */
+.css-snippets-item.enabled-item:hover {
+    border-color: var(--color-green);
+    box-shadow: var(--css-snippets-shadow-md);
+}
+
+.css-snippets-item.disabled-item:hover {
+    border-color: var(--color-orange);
+    box-shadow: var(--css-snippets-shadow-md);
+}
+
+.css-snippets-item:last-child,
+.css-snippets-cloud-item:last-child,
+.css-snippets-local-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 片段标题区域 */
+.css-snippets-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--css-snippets-spacing-md);
+    gap: var(--css-snippets-spacing-md);
+}
+
+/* 文件信息行样式 */
+.css-snippets-file-info {
+    display: flex;
+    gap: var(--css-snippets-spacing-lg);
+    margin-bottom: var(--css-snippets-spacing-md);
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+
+.css-snippets-file-date,
+.css-snippets-file-hash {
+    font-family: var(--font-monospace);
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.css-snippets-file-hash {
+    cursor: help;
+    transition: color 0.2s ease;
+}
+
+.css-snippets-file-hash:hover {
+    color: var(--text-normal);
+}
+
+.css-snippets-item-name,
+.css-snippets-cloud-name,
+.css-snippets-local-name {
+    font-weight: 600;
+    color: var(--text-normal);
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+}
+
+/* 统一状态标签 */
+.css-snippets-status {
+    font-size: 11px;
+    padding: var(--css-snippets-spacing-xs) var(--css-snippets-spacing-sm);
+    border-radius: var(--css-snippets-radius-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.css-snippets-status.enabled {
+    color: var(--color-green);
+    background: rgba(var(--color-green-rgb), 0.1);
+    border: 1px solid rgba(var(--color-green-rgb), 0.2);
+}
+
+.css-snippets-status.disabled {
+    color: var(--color-orange);
+    background: rgba(var(--color-orange-rgb), 0.1);
+    border: 1px solid rgba(var(--color-orange-rgb), 0.2);
+}
+
+/* =====================================
+   统一按钮系统
+   ===================================== */
+.css-snippets-btn {
+    padding: var(--css-snippets-spacing-sm) var(--css-snippets-spacing-md);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--css-snippets-spacing-xs);
+    text-decoration: none;
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    white-space: nowrap;
+}
+
+.css-snippets-btn:hover {
+    border-color: var(--interactive-accent);
+    background: var(--background-modifier-hover);
+}
+
+/* 主要按钮 */
+.css-snippets-btn-primary {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--background-modifier-border);
+}
+
+.css-snippets-btn-primary:hover {
+    background: var(--interactive-accent-hover);
+    border-color: var(--background-modifier-border);
+}
+
+/* 危险按钮 */
+.css-snippets-btn-danger {
+    background: transparent;
+    color: var(--color-red);
+    border-color: rgba(var(--color-red-rgb), 0.3);
+}
+
+.css-snippets-btn-danger:hover {
+    background: rgba(var(--color-red-rgb), 0.1);
+    border-color: var(--color-red);
+}
+
+/* 成功按钮 */
+.css-snippets-btn-success {
+    background: transparent;
+    color: var(--color-green);
+    border-color: rgba(var(--color-green-rgb), 0.3);
+}
+
+.css-snippets-btn-success:hover {
+    background: rgba(var(--color-green-rgb), 0.1);
+    border-color: var(--color-green);
+}
+
+/* =====================================
+   统一操作按钮组
+   ===================================== */
+.css-snippets-actions,
+.css-snippets-cloud-actions,
+.css-snippets-local-actions {
+    display: flex;
+    gap: var(--css-snippets-spacing-sm);
+    flex-wrap: wrap;
+    margin-top: var(--css-snippets-spacing-md);
+    padding-top: var(--css-snippets-spacing-md);
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+/* 编辑器按钮组 */
+.css-snippets-editor-buttons {
+    display: flex;
+    gap: var(--css-snippets-spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--css-snippets-spacing-xl);
+    padding: var(--css-snippets-spacing-lg);
+    background: var(--background-secondary);
+    border-radius: var(--css-snippets-radius-md);
+    border: 1px solid var(--background-modifier-border);
+}
+
+/* 刷新按钮 - 统一样式 */
+.css-snippets-refresh-btn {
+    margin-top: var(--css-snippets-spacing-lg);
+    align-self: flex-start;
+}
+
+/* =====================================
+   统一表单元素
+   ===================================== */
+.css-snippets-editor-input {
+    margin-bottom: var(--css-snippets-spacing-xl);
+    padding: 0;
+    background-color: transparent;
+}
+
+.css-snippets-editor-input label {
+    display: block;
+    margin-bottom: var(--css-snippets-spacing-sm);
+    font-weight: 600;
+    color: var(--text-normal);
+    font-size: 13px;
+}
+
+.css-snippets-name-input {
+    width: 100%;
+    padding: var(--css-snippets-spacing-md);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-md);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 14px;
+    transition: all 0.2s ease;
+    font-family: var(--font-interface);
+    box-sizing: border-box;
+}
+
+.css-snippets-name-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.1);
+}
+
+.css-snippets-editor-code {
+    margin-bottom: var(--css-snippets-spacing-xl);
+    padding: 0;
+    background-color: transparent;
+}
+
+.css-snippets-editor-code label {
+    display: block;
+    margin-bottom: var(--css-snippets-spacing-sm);
+    font-weight: 600;
+    color: var(--text-normal);
+    font-size: 13px;
+}
+
+.css-snippets-code-textarea {
+    width: 100%;
+    padding: var(--css-snippets-spacing-lg);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-md);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-family: var(--font-monospace);
+    font-size: 13px;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 180px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.css-snippets-code-textarea:hover {
+    background: var(--background-primary); /* 保持背景色不变 */
+}
+
+.css-snippets-code-textarea:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.1);
+    background: var(--background-primary); /* 保持背景色不变 */
+}
+
+/* =====================================
+   统一描述输入框
+   ===================================== */
+.css-snippets-desc-input,
+.css-snippets-description-input {
+    width: 100%;
+    padding: var(--css-snippets-spacing-sm) var(--css-snippets-spacing-md);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-sm);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 12px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.css-snippets-desc-input:focus,
+.css-snippets-description-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 1px rgba(var(--interactive-accent-rgb), 0.1);
+}
+
+.css-snippets-description,
+.css-snippets-description-section {
+    margin-bottom: var(--css-snippets-spacing-md);
+}
+
+.css-snippets-description-display {
+    margin-top: var(--css-snippets-spacing-xs);
+    padding: var(--css-snippets-spacing-sm);
+    background: var(--background-secondary);
+    border-radius: var(--css-snippets-radius-sm);
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* 云端模块只读描述样式 */
+.css-snippets-description-readonly {
+    margin-top: var(--css-snippets-spacing-xs);
+    padding: var(--css-snippets-spacing-sm);
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-sm);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    user-select: none;
+    cursor: default;
+    font-style: normal;
+}
+
+.css-snippets-file-size {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.css-snippets-description {
+    margin-bottom: 8px;
+}
+
+.css-snippets-desc-input {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    background-color: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 12px;
+}
+
+.css-snippets-desc-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+}
+
+.css-snippets-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Empty states */
+.css-snippets-empty {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.css-snippets-notice {
+    color: var(--text-accent);
+    text-align: center;
+    padding: 20px;
+}
+
+.css-snippets-error {
+    color: var(--text-error);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Editor section styles */
+/* =====================================
+   表单元素 - 现代化设计
+   ===================================== */
+.css-snippets-editor-input {
+    margin-bottom: 24px;
+    padding: 0;
+    background-color: transparent;
+}
+
+.css-snippets-editor-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-normal);
+    font-size: 14px;
+}
+
+.css-snippets-name-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--background-modifier-border);
+    border-radius: 10px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 15px;
+    transition: all 0.3s ease;
+    font-family: var(--font-interface);
+}
+
+.css-snippets-name-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 3px rgba(var(--interactive-accent-rgb), 0.1);
+    transform: translateY(-1px);
+}
+
+.css-snippets-editor-code {
+    margin-bottom: 24px;
+    padding: 0;
+    background-color: transparent;
+}
+
+.css-snippets-editor-code label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-normal);
+    font-size: 14px;
+}
+
+.css-snippets-code-textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid var(--background-modifier-border);
+    border-radius: 10px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-family: var(--font-monospace);
+    font-size: 14px;
+    line-height: 1.6;
+    resize: vertical;
+    min-height: 220px;
+    transition: all 0.3s ease;
+}
+
+.css-snippets-code-textarea:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 3px rgba(var(--interactive-accent-rgb), 0.1);
+}
+
+/* 描述输入框 */
+.css-snippets-desc-input,
+.css-snippets-description-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.css-snippets-desc-input:focus,
+.css-snippets-description-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.1);
+}
+
+/* 描述区域 */
+.css-snippets-description,
+.css-snippets-description-section {
+    margin-bottom: 12px;
+}
+
+.css-snippets-description-display {
+    margin-top: 4px;
+    padding: 6px;
+    background: var(--background-secondary-alt);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* =====================================
+   统一状态和提示组件
+   ===================================== */
+
+/* 空状态 */
+.css-snippets-empty {
+    text-align: center;
+    padding: var(--css-snippets-spacing-2xl) var(--css-snippets-spacing-lg);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.css-snippets-empty-search {
+    text-align: center;
+    padding: var(--css-snippets-spacing-2xl) var(--css-snippets-spacing-lg);
+    color: var(--text-muted);
+    background: var(--background-secondary);
+    border-radius: var(--css-snippets-radius-md);
+    border: 1px dashed var(--background-modifier-border);
+    margin: var(--css-snippets-spacing-lg) 0;
+}
+
+.css-snippets-empty-search p {
+    margin: 0 0 var(--css-snippets-spacing-sm) 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.css-snippets-empty-search small {
+    color: var(--text-faint);
+    font-size: 12px;
+}
+
+/* 搜索结果统计 */
+.css-snippets-search-stats {
+    margin-bottom: var(--css-snippets-spacing-lg);
+    padding: var(--css-snippets-spacing-md);
+    background: var(--background-secondary);
+    border-radius: var(--css-snippets-radius-md);
+    border-left: 3px solid var(--interactive-accent);
+}
+
+.css-snippets-search-stats p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* 匹配信息 */
+.css-snippets-match-info {
+    display: inline-block;
+    margin-top: var(--css-snippets-spacing-xs);
+    padding: 2px var(--css-snippets-spacing-xs);
+    background: rgba(var(--interactive-accent-rgb), 0.1);
+    color: var(--interactive-accent);
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: var(--css-snippets-radius-sm);
+}
+
+/* 预览容器 */
+.css-snippets-preview-container {
+    margin-top: var(--css-snippets-spacing-xl);
+    padding: var(--css-snippets-spacing-xl);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-md);
+    background: var(--background-secondary);
+}
+
+.css-snippets-preview-container h4 {
+    margin: 0 0 var(--css-snippets-spacing-lg) 0;
+    color: var(--text-accent);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.css-snippets-preview-content {
+    margin-bottom: var(--css-snippets-spacing-lg);
+    padding: var(--css-snippets-spacing-lg);
+    background: var(--background-primary);
+    border-radius: var(--css-snippets-radius-sm);
+    border: 1px solid var(--background-modifier-border);
+}
+
+/* 成功/错误消息 */
+.css-snippets-preview-success {
+    color: var(--color-green);
+    font-weight: 500;
+    margin: 0;
+}
+
+.css-snippets-preview-error {
+    color: var(--color-red);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* 文件大小 */
+.css-snippets-file-size {
+    font-size: 10px;
+    color: var(--text-faint);
+    background: var(--background-secondary);
+    padding: 2px var(--css-snippets-spacing-xs);
+    border-radius: var(--css-snippets-radius-sm);
+    margin-left: var(--css-snippets-spacing-sm);
+}
+
+/* =====================================
+   响应式设计 - 统一断点
+   ===================================== */
+@media (max-width: 768px) {
+    .css-snippets-manager-view {
+        padding: var(--css-snippets-spacing-lg);
+    }
+    
+    .css-snippets-tab-nav {
+        flex-wrap: wrap;
+        gap: var(--css-snippets-spacing-xs);
+    }
+    
+    .css-snippets-tab-button {
+        flex: 1;
+        min-width: 100px;
+        padding: var(--css-snippets-spacing-md);
+        font-size: 13px;
+    }
+    
+    .css-snippets-editor-buttons {
+        flex-direction: column;
+    }
+    
+    .css-snippets-actions,
+    .css-snippets-cloud-actions,
+    .css-snippets-local-actions {
+        flex-direction: column;
+        gap: var(--css-snippets-spacing-sm);
+    }
+    
+    .css-snippets-btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .css-snippets-manager-view {
+        padding: var(--css-snippets-spacing-md);
+    }
+    
+    .css-snippets-tab-button {
+        padding: var(--css-snippets-spacing-sm) var(--css-snippets-spacing-md);
+        font-size: 12px;
+    }
+    
+    .css-snippets-search-input {
+        font-size: 16px; /* 防止 iOS 缩放 */
+    }
+    
+    .css-snippets-code-textarea {
+        min-height: 150px;
+        font-size: 12px;
+    }
+    
+    .css-snippets-item,
+    .css-snippets-cloud-item,
+    .css-snippets-local-item {
+        padding: var(--css-snippets-spacing-md);
+    }
+}
+
+/* =====================================
+   兼容性和清理
+   ===================================== */
+
+/* 移除旧样式的兼容性 */
+.css-snippets-cloud-section,
+.css-snippets-local-section,
+.css-snippets-editor-section {
+    display: none;
+}
+
+/* 确保列表项一致性 */
+.css-snippets-cloud-item,
+.css-snippets-local-item {
+    padding: var(--css-snippets-spacing-lg);
+    margin-bottom: var(--css-snippets-spacing-md);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--css-snippets-radius-md);
+    background: var(--background-primary);
+    transition: all 0.2s ease;
+}
+
+.css-snippets-cloud-item:hover,
+.css-snippets-local-item:hover {
+    border-color: var(--interactive-accent);
+    box-shadow: var(--css-snippets-shadow-md);
+}
+
+/* 统一标题样式 */
+.css-snippets-cloud-name,
+.css-snippets-local-name {
+    font-weight: 600;
+    color: var(--text-normal);
+    font-size: 14px;
+    margin-bottom: var(--css-snippets-spacing-sm);
+}
+
+/* Ribbon icon styles - 与其他插件保持一致的亮度 */
+.css-snippets-manager-ribbon-class {
+    /* 移除颜色覆盖，让图标使用原生的白色填充 */
+    transition: opacity 0.2s ease;
+}
+
+.css-snippets-manager-ribbon-class:hover {
+    /* 悬停时稍微降低不透明度，提供视觉反馈 */
+    opacity: 0.8;
+}
+
+/* 状态栏图标样式 */
+.css-snippets-manager-status-bar {
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.css-snippets-manager-status-bar:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.css-snippets-manager-status-bar .status-bar-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.css-snippets-manager-status-bar .status-bar-item-icon svg {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.css-snippets-manager-status-bar:hover .status-bar-item-icon svg {
+    color: var(--text-normal);
+}
+
+/* Settings styles */
+.css-snippets-test-btn {
+    margin-top: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .css-snippets-editor-buttons {
+        flex-direction: column;
+    }
+    
+    .css-snippets-btn {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .css-snippets-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .css-snippets-actions {
+        justify-content: flex-start;
+    }
+}
+
+/* Search functionality styles */
+.css-snippets-search-stats {
+    background: var(--background-modifier-border);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.css-snippets-search-stats p {
+    margin: 0;
+}
+
+.css-snippets-match-info {
+    display: block;
+    color: var(--text-accent);
+    font-style: italic;
+    margin-top: 4px;
+    font-size: 0.85em;
+}
+
+.css-snippets-description-display {
+    background: var(--background-secondary-alt);
+    padding: 6px 8px;
+    border-radius: 3px;
+    margin-top: 4px;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+/* Search highlighting - 限制作用域到插件内 */
+.css-snippets-manager-view mark,
+.css-snippets-setting-tab mark {
+    background: var(--text-highlight-bg);
+    color: var(--text-normal);
+    padding: 1px 2px;
+    border-radius: 2px;
+}
+
+/* Status indicators for search results */
+.css-snippets-status {
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.css-snippets-status.enabled {
+    background: var(--color-green);
+    color: white;
+}
+
+.css-snippets-status.disabled {
+    background: var(--color-orange);
+    color: white;
+}
+
+/* Description section styling */
+.css-snippets-description-section {
+    margin: 6px 0;
+}
+
+.css-snippets-description-input {
+    width: 100%;
+    padding: 4px 8px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+.css-snippets-description-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px var(--interactive-accent-hover);
+}
+
+/* Search result item layout */
+.css-snippets-cloud-item,
+.css-snippets-local-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.css-snippets-cloud-name,
+.css-snippets-local-name {
+    font-weight: 500;
+    color: var(--text-normal);
+}
+
+/* Clear search button */
+.css-snippets-search-clear {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.css-snippets-search-clear:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+.css-snippets-search {
+    position: relative;
+}
+
+/* CSS Preview Styles */
+.css-snippets-preview-container {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    background: var(--background-secondary);
+}
+
+/* 无边框预览容器样式 */
+.css-snippets-preview-container.css-snippets-preview-no-border {
+    margin-top: 16px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.css-snippets-preview-content h4,
+.css-snippets-preview-content h5 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--text-accent);
+}
+
+.css-snippets-preview-code {
+    margin-bottom: 16px;
+}
+
+.css-snippets-preview-code pre {
+    background: var(--background-primary-alt);
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.css-snippets-preview-sample {
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: 16px;
+}
+
+.css-snippets-sample-container {
+    padding: 16px;
+    border: 1px dashed var(--background-modifier-border);
+    border-radius: 4px;
+    background: var(--background-primary);
+    margin-bottom: 12px;
+}
+
+.css-snippets-sample-text {
+    margin-bottom: 12px;
+    padding: 8px;
+    background: var(--background-modifier-form-field);
+    border-radius: 4px;
+}
+
+.css-snippets-sample-button {
+    display: inline-block;
+    margin: 8px 8px 8px 0;
+    padding: 8px 16px;
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.css-snippets-sample-container-demo {
+    padding: 12px;
+    margin-top: 12px;
+    background: var(--background-secondary-alt);
+    border-radius: 4px;
+    color: var(--text-normal);
+}
+
+.css-snippets-preview-success {
+    color: var(--color-green);
+    font-weight: 500;
+    margin: 0;
+}
+
+.css-snippets-preview-error {
+    color: var(--color-red);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Empty search results styling */
+.css-snippets-empty-search {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+}
+
+.css-snippets-empty-search p {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+}
+
+.css-snippets-empty-search small {
+    color: var(--text-faint);
+    font-style: italic;
+}
+
+/* Enhanced Responsive design */
+@media (max-width: 768px) {
+    .css-snippets-editor-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .css-snippets-tab-nav {
+        flex-wrap: wrap;
+        gap: 2px;
+    }
+    
+    .css-snippets-tab-button {
+        padding: 10px 16px;
+        font-size: 13px;
+        flex: 1;
+        min-width: 100px;
+    }
+    
+    .css-snippets-manager-view {
+        padding: 12px;
+    }
+    
+    .css-snippets-tab-panel {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .css-snippets-tab-button {
+        padding: 8px 12px;
+        font-size: 12px;
+        min-width: 80px;
+    }
+    
+    .css-snippets-search-input {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    .css-snippets-code-textarea {
+        font-size: 14px;
+    }
+}
+
+/* =====================================
+   增强组件和动画效果
+   ===================================== */
+
+/* 搜索结果统计 */
+.css-snippets-search-stats {
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, var(--background-secondary-alt), var(--background-secondary));
+    border-radius: 10px;
+    border-left: 4px solid var(--interactive-accent);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.css-snippets-search-stats p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* 匹配信息样式 */
+.css-snippets-match-info {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 6px;
+    background: rgba(var(--interactive-accent-rgb), 0.1);
+    color: var(--interactive-accent);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+}
+
+/* 预览容器增强 */
+.css-snippets-preview-container {
+    margin-top: 20px;
+    padding: 24px;
+    border: 2px solid var(--background-modifier-border);
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--background-secondary), var(--background-primary));
+    backdrop-filter: blur(10px);
+    animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+/* 加载动画优化 */
+.css-snippets-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 8px 12px;
+    background: var(--background-secondary-alt);
+    border-radius: 8px;
+}
+
+.css-snippets-loading::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--background-modifier-border);
+    border-top: 2px solid var(--interactive-accent);
+    border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 工具提示样式 */
+.css-snippets-tooltip {
+    position: relative;
+}
+
+.css-snippets-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-tooltip);
+    color: var(--text-on-accent);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.css-snippets-tooltip:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* 成功/警告/错误状态 */
+.css-snippets-status-success {
+    color: var(--color-green);
+    background: rgba(var(--color-green-rgb), 0.1);
+    border: 1px solid rgba(var(--color-green-rgb), 0.2);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.css-snippets-status-warning {
+    color: var(--color-orange);
+    background: rgba(var(--color-orange-rgb), 0.1);
+    border: 1px solid rgba(var(--color-orange-rgb), 0.2);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.css-snippets-status-error {
+    color: var(--color-red);
+    background: rgba(var(--color-red-rgb), 0.1);
+    border: 1px solid rgba(var(--color-red-rgb), 0.2);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* =====================================
+   设置面板样式 - GitHub URL和Token输入框对齐
+   ===================================== */
+
+/* GitHub设置项统一高度 */
+.css-snippets-github-setting-item {
+    min-height: 80px; /* 统一最小高度 */
+    display: flex;
+    align-items: center;
+}
+
+.css-snippets-github-setting-item .setting-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: inherit;
+    padding: 16px 0; /* 确保内边距一致 */
+}
+
+/* URL和Token设置的特殊样式调整 */
+.css-snippets-url-setting .setting-item,
+.css-snippets-token-setting .setting-item {
+    min-height: 80px;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+}
+
+.css-snippets-url-setting .setting-item-info,
+.css-snippets-token-setting .setting-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 48px; /* 确保文本区域有足够高度 */
+}
+
+.css-snippets-url-setting .setting-item-control,
+.css-snippets-token-setting .setting-item-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+}
+
+.css-snippets-token-setting .setting-item-control input {
+    min-height: 32px; /* 确保输入框高度一致 */
+}
+
+.css-snippets-token-setting .setting-editor-extra-setting-button {
+    flex-shrink: 0;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 确保两个设置项的基本布局一致 */
+.css-snippets-url-setting,
+.css-snippets-token-setting {
+    margin-bottom: var(--size-4-6);
+}
+
+/* 确保标签区域宽度一致，实现左侧对齐 */
+.css-snippets-url-setting .setting-item-info,
+.css-snippets-token-setting .setting-item-info {
+    width: 40%;
+    min-width: 200px;
+    flex-shrink: 0;
+}
+
+/* 控制区域基本布局 */
+.css-snippets-url-setting .setting-item-control,
+.css-snippets-token-setting .setting-item-control {
+    width: 60%;
+    min-width: 0;
+}
+
+/* Token输入框容器 - 使用flexbox布局 */
+.css-snippets-token-setting .setting-item-control {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* 输入框和按钮之间的间隙 */
+}
+
+/* Token输入框 - 占据大部分空间 */
+.css-snippets-token-setting .setting-item-control input {
+    flex: 1;
+    min-width: 0;
+}
+
+/* URL输入框 - 扩展宽度以匹配Token输入框+间隙+按钮的总宽度 */
+.css-snippets-url-setting .setting-item-control input {
+    width: calc(100% + 38px); /* 100% + 6px间隙 + 32px按钮宽度 */
+    max-width: calc(100% + 38px);
+}
+
+/* Token显示/隐藏按钮样式 */
+.css-snippets-token-setting .setting-item-control .clickable-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--interactive-normal);
+    border: 1px solid var(--background-modifier-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* 防止按钮收缩 */
+}
+
+.css-snippets-token-setting .setting-item-control .clickable-icon:hover {
+    background: var(--interactive-hover);
+}
+
+.css-snippets-token-setting .setting-item-control .clickable-icon:active {
+    background: var(--interactive-active);
+}
+
+/* SVG图标样式 */
+.css-snippets-token-setting .setting-item-control .clickable-icon svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.8;
+}
+
+/* GitHub Token 获取步骤说明样式 - 可折叠设计 */
+.css-snippets-token-guide {
+    margin: var(--size-4-3) 0;
+}
+
+.css-snippets-token-guide .css-snippets-collapsible {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.css-snippets-token-guide .css-snippets-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-accent);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    user-select: none;
+}
+
+.css-snippets-token-guide .css-snippets-summary:hover {
+    background: var(--background-modifier-hover);
+}
+
+.css-snippets-token-guide .css-snippets-summary::-webkit-details-marker {
+    display: none;
+}
+
+.css-snippets-token-guide .css-snippets-chevron {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-accent);
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.css-snippets-token-guide .css-snippets-collapsible[open] .css-snippets-chevron {
+    transform: rotate(0deg);
+}
+
+.css-snippets-token-guide .css-snippets-content {
+    margin-top: 12px;
+    margin-left: 22px;
+    color: var(--text-normal);
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.css-snippets-token-guide .css-snippets-content ol {
+    margin: 0;
+    padding-left: 16px;
+}
+
+/* =====================================
+   现代简约删除确认通知窗口
+   ===================================== */
+
+/* 通知窗口遮罩层 - 轻量级背景 */
+.css-snippets-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: overlayFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes overlayFadeIn {
+    from { 
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to { 
+        opacity: 1;
+        backdrop-filter: blur(2px);
+    }
+}
+
+/* 现代简约通知窗口 */
+.css-snippets-modal {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border-hover);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 340px;
+    width: 300px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+    animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 优雅标题 */
+.css-snippets-modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-normal);
+    margin: 0 0 16px 0;
+    text-align: center;
+    letter-spacing: -0.2px;
+}
+
+/* 温和内容文字 */
+.css-snippets-modal-content {
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 4px;
+}
+
+/* 主要删除提示文字 - 稍大字体 */
+.css-snippets-modal-main-text {
+    font-size: 16px !important;
+    font-weight: 500;
+    color: var(--text-normal) !important;
+    margin-top: 8px;
+    margin-bottom: 28px;
+}
+
+/* 现代按钮组 */
+.css-snippets-modal-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* 现代按钮样式 */
+.css-snippets-modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -0.1px;
+}
+
+/* 取消按钮 - 柔和灰色 */
+.css-snippets-modal-btn-cancel {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+}
+
+.css-snippets-modal-btn-cancel:hover {
+    background: var(--background-modifier-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 删除按钮 - 现代红色 */
+.css-snippets-modal-btn-confirm {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+}
+
+.css-snippets-modal-btn-confirm:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* 流畅关闭动画 */
+.css-snippets-modal-overlay.closing {
+    animation: overlayFadeOut 0.2s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+
+.css-snippets-modal-overlay.closing .css-snippets-modal {
+    animation: modalSlideOut 0.2s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+
+@keyframes overlayFadeOut {
+    from { 
+        opacity: 1;
+        backdrop-filter: blur(2px);
+    }
+    to { 
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+}
+
+@keyframes modalSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+}
+
+@keyframes overlayFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes modalSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+}
+
+.css-snippets-token-guide .css-snippets-content li {
+    margin-bottom: 4px;
+}
+
+.css-snippets-token-guide .css-snippets-content a {
+    color: var(--text-accent);
+    text-decoration: none;
+}
+
+.css-snippets-token-guide .css-snippets-content a:hover {
+    text-decoration: underline;
+}
+
+.css-snippets-token-guide .css-snippets-content p {
+    margin: 8px 0 0 0;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.css-snippets-token-guide .css-snippets-content strong {
+    color: var(--text-normal);
+    font-weight: 600;
+}
+
+/* =====================================
+   禁用状态样式 - 安全的输入框禁用
+   ===================================== */
+.css-snippets-input-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.css-snippets-btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
