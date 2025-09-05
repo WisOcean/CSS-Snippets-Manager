@@ -3,7 +3,7 @@
 	"name": "CSS Snippets Manager",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "A comprehensive CSS snippets management plugin for Obsidian with local and GitHub cloud synchronization support.",
+	"description": "Manage and annotate CSS snippets, with optional GitHub backup.",
 	"author": "Wis_Ocean",
 	"authorUrl": "https://github.com/Wis_Ocean",
 	"isDesktopOnly": false
